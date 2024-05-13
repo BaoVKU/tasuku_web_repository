@@ -17,7 +17,7 @@
 ![image](https://github.com/BaoVKU/tasuku_web_repository/assets/164776548/a5b3d31f-a0e5-4bd8-a5ad-87bb654cd97c)
 
 - Chạy lệnh cài đặt môi trường
-> npm install
+> `npm install`
 
 > `composer install`
 
