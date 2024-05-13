@@ -16,14 +16,14 @@
 
 ![image](https://github.com/BaoVKU/tasuku_web_repository/assets/164776548/a5b3d31f-a0e5-4bd8-a5ad-87bb654cd97c)
 
-    - `npm install`
+    `npm install`
 
-    - `composer install`
+    `composer install`
 
 - Bật 2 terminal song song
 - Terminal thứ nhất chạy:
 
-    - `npm run dev`
+    `npm run dev`
 
 - Terminal thứ hai chạy:
 
