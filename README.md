@@ -20,15 +20,15 @@
   
 `npm install`
 
-> `composer install`
+`composer install`
 
 - Bật 2 terminal song song
 - Terminal thứ nhất chạy:
 
-> `npm run dev`
+`npm run dev`
 
 - Terminal thứ hai chạy:
 
-> `php artisan serve --host 192.168.1.9 --port 7749`
-> 
-> `--host` và `--port` phụ thuộc vào IP vừa kiểm tra được và port bất kì
+`php artisan serve --host 192.168.1.9 --port 7749`
+
+`--host` và `--port` phụ thuộc vào IP vừa kiểm tra được và port bất kì
