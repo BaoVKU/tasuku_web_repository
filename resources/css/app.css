@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    ::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+        background: rgb(226, 232, 240);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgb(203, 213, 225);
+    }
+    @media (max-width: 640px) {
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    .expand-search-input {
+        width: 50% !important;
+    }
+    [type="checkbox"],
+    [type="radio"] {
+        color: #000 !important;
+    }
+}
