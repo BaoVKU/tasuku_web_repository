@@ -8,6 +8,7 @@ use App\Models\MessageAttachment;
 use App\Models\MessageChannel;
 use Exception;
 use Firebase\JWT\JWT;
+use GetStream\StreamChat\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -128,5 +129,13 @@ class MessageController extends Controller
         $jwt = $this->getAccessToken($username);
 
         return view('video-call', ['jwt' => $jwt, 'calleeId' => $id]);
+    }
+
+    public function createApiChannel(Request $request)
+    {
+        $server_client = new Client("23hbg2r8hbdx", "7vsb5fb9kespn2447cj9hrjnjgp45nntt3rs8yhcs9uaf6jhpducbr3c6p24j32b");
+        $channel = $server_client->Channel("messaging", "user-" . $request->user()->id . "-and-user-" . $request->partner_id . "-channel", ['members' => ["" . $request->user()->id, "" . $request->partner_id]]);
+        $result = $channel->create("" . $request->user()->id);
+        return response()->json($result);
     }
 }

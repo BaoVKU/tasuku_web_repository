@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedTokenController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TaskCommentController;
 use App\Http\Controllers\TaskController;
@@ -55,6 +56,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/group/leave/{id}', [GroupController::class, 'leave']);
 
     Route::get('/calendar', [CalendarController::class, 'index']);
+
+    Route::post('/chat/channel/create', [MessageController::class, 'createApiChannel']);
 });
 
 

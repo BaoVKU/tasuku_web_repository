@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use GetStream\StreamChat\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -37,8 +38,12 @@ class AuthenticatedTokenController extends Controller
         ]);
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
             $request->user()->tokens()->delete();
-            $token = $request->user()->createToken('api_token')->plainTextToken;
-            return response()->json(['token' => $token], 200);
+            $bearer_token = $request->user()->createToken('api_token')->plainTextToken;
+
+            $server_client = new Client("23hbg2r8hbdx", "7vsb5fb9kespn2447cj9hrjnjgp45nntt3rs8yhcs9uaf6jhpducbr3c6p24j32b");
+            $jwt_token = $server_client->createToken($request->user()->id);
+
+            return response()->json(['user' => auth()->user(), 'bearer' => $bearer_token, "jwt" => $jwt_token], 200);
         } else {
             return response()->json(['message' => 'Login failed'], 401);
         }
